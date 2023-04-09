@@ -16,10 +16,10 @@ pnpm install
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
-turbo dev
+turbo run dev
 
 # or start the server and open the app in a new browser tab
-turbo dev -- --open
+turbo run dev -- --open
 ```
 
 ## Building
@@ -27,7 +27,7 @@ turbo dev -- --open
 To create a production version of your app:
 
 ```bash
-turbo build
+turbo run build
 ```
 
 You can preview the production build with `pnpm run preview`.
