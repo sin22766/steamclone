@@ -1,6 +1,5 @@
 <script>
     import { Heading } from "flowbite-svelte";
-
 </script>
 <svelte:head>
     <title>Stonks Games Store</title>
