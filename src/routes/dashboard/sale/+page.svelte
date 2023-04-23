@@ -1,5 +1,4 @@
 <script>
-    import { P } from "flowbite-svelte";
-
+    import {P} from "flowbite-svelte";
 </script>
 <P>Sale</P>

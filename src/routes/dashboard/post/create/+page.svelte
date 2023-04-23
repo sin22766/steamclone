@@ -8,62 +8,68 @@
         Hr,
         Input,
         Label,
-        TextPlaceholder,
         Textarea,
+        TextPlaceholder,
     } from "flowbite-svelte";
-    import Svelecte from "svelecte";
+    import type {ObjectOption} from "svelte-multiselect"
+    import MultiSelect from "svelte-multiselect";
 
-    let items = [
-        { id: 1, name: "One" },
-        { id: 2, name: "Two" },
+    let selectedTags: ObjectOption[] = [];
+    let tags = [
+        {value: 1, label: "One"},
+        {value: 2, label: "Two"},
     ];
+
+    const selectClass = "!bg-gray-50 !border !border-gray-300 !text-gray-900 !text-sm !rounded-lg block !w-full !p-2.5 dark:!bg-gray-700 dark:!border-gray-600 dark:!placeholder-gray-400 dark:!text-white dark:!focus:ring-blue-500 dark:!focus:border-blue-500";
 </script>
 
-<Heading tag="h1" customSize="text-3xl font-bold mt-6 mb-2"
-    >Create New Post</Heading
->
-<Hr class="mb-4" />
+<Heading customSize="text-3xl font-bold mt-6 mb-2" tag="h1">
+    Create New Post
+</Heading>
+<Hr class="mb-4"/>
 <form>
     <div class="space-y-2 mb-6">
         <div>
-            <Label for="name" class="mb-2">Name</Label>
+            <Label class="mb-2" for="name">Name</Label>
             <Input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="New Patch"
-                required
+                    id="name"
+                    name="name"
+                    placeholder="New Patch"
+                    required
+                    type="text"
             />
         </div>
         <div class="grid grid-cols-2 gap-4">
             <div>
                 <Label for="content">Content (Markdown)</Label>
                 <Textarea
-                    id="content"
-                    rows="8"
-                    class="mb-4"
-                    placeholder="Write a content"
-                    required
+                        class="mb-4"
+                        id="content"
+                        placeholder="Write a content"
+                        required
+                        rows="8"
                 />
             </div>
             <div>
                 <Label for="preview">Preview</Label>
-                <Card id="preview" class="mb-4 min-w-full">
-                    <TextPlaceholder size="lg" class="my-8" />
+                <Card class="mb-4 min-w-full" id="preview">
+                    <TextPlaceholder class="my-8" size="lg"/>
                 </Card>
             </div>
         </div>
         <div>
-            <Label for="tag" class="mb-2">Tags</Label>
-            <Svelecte multiple options={items} creatable id="tag" name="tag" />
+            <Label class="mb-2" for="tag">Tags</Label>
+            <MultiSelect allowUserOptions bind:selected={selectedTags} id="tag" multiple
+                         name="tag" options={tags}
+                         outerDivClass={selectClass} ulOptionsClass="!bg-gray-50 dark:!bg-gray-700"/>
         </div>
         <div>
-            <Label for="cover_image" class="mb-2">Cover Image</Label>
-            <Fileupload id="cover_image" name="cover_image" required />
+            <Label class="mb-2" for="cover-image">Cover Image</Label>
+            <Fileupload id="cover-image" name="cover-image" required/>
         </div>
         <div>
-            <Label for="published" class="mb-2">Publish this post</Label>
-            <Checkbox id="published" class="mb-8">
+            <Label class="mb-2" for="published">Publish this post</Label>
+            <Checkbox class="mb-8" id="published">
                 I want to publish this post.
             </Checkbox>
         </div>

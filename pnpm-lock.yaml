@@ -22,12 +22,12 @@ dependencies:
   supabase:
     specifier: ^1.50.9
     version: 1.50.9
-  svelecte:
-    specifier: ^3.16.0
-    version: 3.16.0
   svelte-awesome:
     specifier: ^3.2.0
     version: 3.2.0(svelte@3.58.0)
+  svelte-multiselect:
+    specifier: ^8.6.0
+    version: 8.6.0
 
 devDependencies:
   '@sveltejs/adapter-auto':
@@ -2298,12 +2298,6 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /svelecte@3.16.0:
-    resolution: {integrity: sha512-BqGI1QhODCN6iHWWNsjMNwLDivxA6AUmcLOpMWa3v9FOJ5zpQdcOFwHgwuOS1itag9sqb8xqUH8P9/KuG6XEPg==}
-    dependencies:
-      svelte-tiny-virtual-list: 2.0.5
-    dev: false
-
   /svelte-awesome@3.2.0(svelte@3.58.0):
     resolution: {integrity: sha512-A9gqgRDs/6EjUgMHIBHz88vJIiY4fVI7e2X9uu43O7J2EYqdVVSnHHH49TxMnNinbq6K9Z/1kMD9LCZhX7ysUQ==}
     peerDependencies:
@@ -2346,6 +2340,12 @@ packages:
       svelte: '>=3.19.0'
     dependencies:
       svelte: 3.58.0
+
+  /svelte-multiselect@8.6.0:
+    resolution: {integrity: sha512-ce1axNn5YrvDwpUA1R4pSKC7oCD8buP7If61VRoOEM5cxMU8t14tLp5fJf27qd8FBJ7vzvJokiN9BUl1u8oL6w==}
+    dependencies:
+      svelte: 3.58.0
+    dev: false
 
   /svelte-preprocess@5.0.3(postcss@8.4.23)(svelte@3.58.0)(typescript@5.0.4):
     resolution: {integrity: sha512-GrHF1rusdJVbOZOwgPWtpqmaexkydznKzy5qIC2FabgpFyKN57bjMUUUqPRfbBXK5igiEWn1uO/DXsa2vJ5VHA==}
@@ -2394,10 +2394,6 @@ packages:
       svelte: 3.58.0
       typescript: 5.0.4
     dev: true
-
-  /svelte-tiny-virtual-list@2.0.5:
-    resolution: {integrity: sha512-xg9ckb8UeeIme4/5qlwCrl2QNmUZ8SCQYZn3Ji83cUsoASqRNy3KWjpmNmzYvPDqCHSZjruBBsoB7t5hwuzw5g==}
-    dev: false
 
   /svelte@3.58.0:
     resolution: {integrity: sha512-brIBNNB76mXFmU/Kerm4wFnkskBbluBDCjx/8TcpYRb298Yh2dztS2kQ6bhtjMcvUhd5ynClfwpz5h2gnzdQ1A==}

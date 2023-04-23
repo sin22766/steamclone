@@ -1,17 +1,11 @@
 <script lang="ts">
-    import {
-        Button,
-        Card,
-        Helper,
-        Input,
-        Label,
-    } from "flowbite-svelte";
-    import { superForm } from "sveltekit-superforms/client";
-    import type { PageData } from "./$types";
+    import {Button, Card, Helper, Input, Label,} from "flowbite-svelte";
+    import {superForm} from "sveltekit-superforms/client";
+    import type {PageData} from "./$types";
 
     export let data: PageData;
 
-    const { form, errors, enhance } = superForm(data.form);
+    const {form, errors, enhance} = superForm(data.form);
 </script>
 
 <svelte:head>
@@ -26,11 +20,11 @@
         <Label class="space-y-2" color={$errors.email ? "red" : "gray"}>
             <span>Email</span>
             <Input
-                name="email"
-                placeholder="name@company.com"
-                required
-                bind:value={$form.email}
-                color={$errors.email ? "red" : "base"}
+                    bind:value={$form.email}
+                    color={$errors.email ? "red" : "base"}
+                    name="email"
+                    placeholder="name@company.com"
+                    required
             />
             {#if $errors.email}
                 <Helper class="mt-2" color="red">
@@ -40,26 +34,20 @@
         </Label>
         <Label class="space-y-2" color={$errors.password ? "red" : "gray"}>
             <span>Your password</span>
-            <Input
-                type="password"
-                name="password"
-                placeholder="•••••"
-                required
-                bind:value={$form.password}
-                color={$errors.password ? "red" : "base"}
-            />
+            <Input bind:value={$form.password} color={$errors.password ? "red" : "base"} name="password"
+                   placeholder="•••••" required type="password"/>
             {#if $errors.password}
                 <Helper class="mt-2" color="red">
                     {$errors.password}
                 </Helper>
             {/if}
         </Label>
-        <Button type="submit" class="w-full">Login to your account</Button>
+        <Button class="w-full" type="submit">Login to your account</Button>
         <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
             Not registered?
             <a
-                href="/register"
-                class="text-blue-700 hover:underline dark:text-blue-500"
+                    class="text-blue-700 hover:underline dark:text-blue-500"
+                    href="/register"
             >
                 Create account
             </a>
