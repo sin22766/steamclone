@@ -1,10 +1,10 @@
-import { fail, redirect } from "@sveltejs/kit";
-import { setError, superValidate } from "sveltekit-superforms/server";
-import { z } from "zod";
+import {fail, redirect} from "@sveltejs/kit";
+import {setError, superValidate} from "sveltekit-superforms/server";
+import {z} from "zod";
 
 const userLoginSchema = z.object({
     email: z.string().email(),
-    password: z.string().min(8, { message: "Password is invalid" }),
+    password: z.string().min(8, {message: "Password is invalid"}),
 })
 
 export const load = async (event) => {
@@ -24,7 +24,7 @@ export const actions = {
             });
         }
 
-        const { error } = await event.locals.supabase.auth.signInWithPassword(
+        const {error} = await event.locals.supabase.auth.signInWithPassword(
             {
                 email: form.data.email,
                 password: form.data.password,

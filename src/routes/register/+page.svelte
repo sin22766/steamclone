@@ -1,11 +1,11 @@
 <script lang="ts">
-    import { Button, Card, Helper, Input, Label } from "flowbite-svelte";
-    import { superForm } from "sveltekit-superforms/client";
-    import type { PageData } from "./$types";
+    import {Button, Card, Helper, Input, Label} from "flowbite-svelte";
+    import {superForm} from "sveltekit-superforms/client";
+    import type {PageData} from "./$types";
 
     export let data: PageData;
 
-    const { form, errors, enhance } = superForm(data.form);
+    const {form, errors, enhance} = superForm(data.form);
 </script>
 
 <svelte:head>
@@ -20,11 +20,11 @@
         <Label class="space-y-2" color={$errors.email ? "red" : "gray"}>
             <span>Email</span>
             <Input
-                name="email"
-                placeholder="name@company.com"
-                required
-                bind:value={$form.email}
-                color={$errors.email ? "red" : "base"}
+                    bind:value={$form.email}
+                    color={$errors.email ? "red" : "base"}
+                    name="email"
+                    placeholder="name@company.com"
+                    required
             />
             {#if $errors.email}
                 <Helper class="mt-2" color="red">
@@ -35,11 +35,11 @@
         <Label class="space-y-2" color={$errors.username ? "red" : "gray"}>
             <span>Username</span>
             <Input
-                name="username"
-                placeholder="name"
-                required
-                bind:value={$form.username}
-                color={$errors.username ? "red" : "base"}
+                    bind:value={$form.username}
+                    color={$errors.username ? "red" : "base"}
+                    name="username"
+                    placeholder="name"
+                    required
             />
             {#if $errors.username}
                 <Helper class="mt-2" color="red">
@@ -50,12 +50,12 @@
         <Label class="space-y-2" color={$errors.password ? "red" : "gray"}>
             <span>Your password</span>
             <Input
-                type="password"
-                name="password"
-                placeholder="•••••"
-                required
-                bind:value={$form.password}
-                color={$errors.password ? "red" : "base"}
+                    bind:value={$form.password}
+                    color={$errors.password ? "red" : "base"}
+                    name="password"
+                    placeholder="•••••"
+                    required
+                    type="password"
             />
             {#if $errors.password}
                 <Helper class="mt-2" color="red">
@@ -66,12 +66,12 @@
         <Label class="space-y-2" color={$errors.repassword ? "red" : "gray"}>
             <span>Confirm password</span>
             <Input
-                type="password"
-                name="repassword"
-                placeholder="•••••"
-                required
-                bind:value={$form.repassword}
-                color={$errors.repassword ? "red" : "base"}
+                    bind:value={$form.repassword}
+                    color={$errors.repassword ? "red" : "base"}
+                    name="repassword"
+                    placeholder="•••••"
+                    required
+                    type="password"
             />
             {#if $errors.repassword}
                 <Helper class="mt-2" color="red">
@@ -79,12 +79,12 @@
                 </Helper>
             {/if}
         </Label>
-        <Button type="submit" class="w-full">Register your account</Button>
+        <Button class="w-full" type="submit">Register your account</Button>
         <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
             Already registered?
             <a
-                href="/login"
-                class="text-blue-700 hover:underline dark:text-blue-500"
+                    class="text-blue-700 hover:underline dark:text-blue-500"
+                    href="/login"
             >
                 Login
             </a>

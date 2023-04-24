@@ -18,7 +18,7 @@ Once you've created a project and installed dependencies with `npm install` (or 
 ```bash
 turbo run dev
 
-# or start the server and open the app in a new browser tab
+# or start the server and open the app in a create browser tab
 turbo run dev -- --open
 ```
 

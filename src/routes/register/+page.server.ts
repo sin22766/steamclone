@@ -1,18 +1,19 @@
-import { fail, redirect } from "@sveltejs/kit";
-import { setError, superValidate } from "sveltekit-superforms/server";
-import { z } from "zod";
+import type {RequestEvent} from "@sveltejs/kit";
+import {fail, redirect} from "@sveltejs/kit";
+import {setError, superValidate} from "sveltekit-superforms/server";
+import {z} from "zod";
 
 const registerUserSchema = z.object({
     email: z.string().email(),
-    username: z.string().min(1, { message: "Username is required" }),
-    password: z.string().min(8, { message: "Password must be longer than 8 chareacters" }),
+    username: z.string().min(1, {message: "Username is required"}),
+    password: z.string().min(8, {message: "Password must be longer than 8 characters"}),
     repassword: z.string()
 }).refine((data) => data.password === data.repassword, {
     message: "Password doesn't match",
     path: ["repassword"]
 });
 
-export const load = async (event) => {
+export const load = async (event: RequestEvent) => {
     const form = await superValidate(event, registerUserSchema);
     return {
         form
@@ -20,7 +21,7 @@ export const load = async (event) => {
 }
 
 export const actions = {
-    default: async (event) => {
+    default: async (event: RequestEvent) => {
         const form = await superValidate(event, registerUserSchema);
 
         if (!form.valid) {
@@ -29,7 +30,7 @@ export const actions = {
             });
         }
 
-        const { error } = await event.locals.supabase.auth.signUp(
+        const {error} = await event.locals.supabase.auth.signUp(
             {
                 email: form.data.email,
                 password: form.data.password,
