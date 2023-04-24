@@ -5,11 +5,15 @@
             Button, Input,
             Range, Label,
             A,
-            Tabs, TabItem
+            Tabs, TabItem,
+            Card, Toggle
 
     } from "flowbite-svelte";
+
     let stepValue=50
     let spanClass = 'flex-1 ml-3 whitespace-nowrap';
+    let vCard = false;
+
     $: activeUrl = $page.url.pathname
     $: containPath = ()=>{
     // add your logic here
@@ -22,7 +26,7 @@
     <title>Browse game</title>
 </svelte:head>
 
-<style>
+<!-- <style>
     .main {
     width: 180px;
     margin: 2rem auto;
@@ -67,7 +71,7 @@
     /* display: flex; */
     justify-content: space-between;
 }
-</style>
+</style> -->
 
 <div class="flex min-h-full">
     <div class="fixed inset-0 z-30 flex-none h-full w-64 lg:static lg:h-auto border-r border-gray-200 dark:border-gray-600 lg:overflow-y-visible lg:pt-0 lg:block hidden">
@@ -131,7 +135,7 @@
             <div class="col-span-1">07</div>  
             <div class="col-span-1">08</div> -->
             
-            <div class="main" id="frem1">
+            <!-- <div class="main" id="frem1">
                 <div class="img">
                     <img src="" alt="">
                 </div>
@@ -149,108 +153,23 @@
                         <h1>OS</h1>
                     </div>
                 </div>
+            </div> -->
+
+            <div>
+            <Card img="img" reverse={vCard}>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Game name</h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
+                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                </p>
+                <!-- <Button>
+                buy <svg xmlns="/" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                </Button> -->
+
+            </Card>
             </div>
 
-            <div class="main" id="frem2">
-                <div class="img">
-                    <img src="" alt="">
-                </div>
-                <div class="content">
-                    <h1>Game name </h1>
-                    <p>Lorem Rerum vel fugiat ipsam soluta deleniti quod.</p>
 
-                </div>
-                <div class="footer">
-                    <div class="fit-l">
-                    <h1>Tags</h1>
-                    </div>
-
-                    <div class="fit-r">
-                        <h1>OS</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="main" id="frem3">
-                <div class="img">
-                    <img src="" alt="">
-                </div>
-                <div class="content">
-                    <h1>Game name </h1>
-                    <p>Lorem Rerum vel fugiat ipsam soluta deleniti quod.</p>
-
-                </div>
-                <div class="footer">
-                    <div class="fit-l">
-                        <h1>Tags</h1>
-                    </div>
-
-                    <div class="fit-r">
-                        <h1>OS</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="main" id="frem4">
-                <div class="img">
-                    <img src="" alt="">
-                </div>
-                <div class="content">
-                    <h1>Game name </h1>
-                    <p>Lorem Rerum vel fugiat ipsam soluta deleniti quod.</p>
-
-                </div>
-                <div class="footer">
-                    <div class="fit-l">
-                    <h1>Tags</h1>
-                    </div>
-
-                    <div class="fit-r">
-                        <h1>OS</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="main" id="frem5">
-                <div class="img">
-                    <img src="" alt="">
-                </div>
-                <div class="content">
-                    <h1>Game name </h1>
-                    <p>Lorem Rerum vel fugiat ipsam soluta deleniti quod.</p>
-
-                </div>
-                <div class="footer">
-                    <div class="fit-l">
-                    <h1>Tags</h1>
-                    </div>
-
-                    <div class="fit-r">
-                        <h1>OS</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="main" id="frem6">
-                <div class="img">
-                    <img src="" alt="">
-                </div>
-                <div class="content">
-                    <h1>Game name </h1>
-                    <p>Lorem Rerum vel fugiat ipsam soluta deleniti quod.</p>
-
-                </div>
-                <div class="footer">
-                    <div class="fit-l">
-                    <h1>Tags</h1>
-                    </div>
-
-                    <div class="fit-r">
-                        <h1>OS</h1>
-                    </div>
-                </div>
-            </div>
-          </div>
+        </div>
     </div>
 </div>
 
